@@ -2,8 +2,7 @@ import socket
 import threading
 
 #Variables globales
-clients = [] #Lista de conexiones, en principio not needed?
-user_counter = 0 
+clients = [] #Lista de conexiones, en principio not needed? 
 
 #Set server
 def setup_server(host,port):
@@ -38,9 +37,6 @@ def broadcast(message,s):
             except:
                 print(f"Could not send mesage to {client["nickname"]}")
         
-
-def close_server():
-    pass
 
 def receive_data(s):
     global clients,user_counter
