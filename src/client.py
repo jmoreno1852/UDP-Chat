@@ -6,16 +6,13 @@ server = ('127.0.0.1',4444)
 #Connect to server
 
 c = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-c.sendto(nickname.encode('utf-8'),('127.0.0.1',4444))
+c.sendto(nickname.encode('utf-8'),server)
 
 def receive(c):
     while True: 
         try:
             message = c.recvfrom(1024).decode('utf-8')
-            if message == 'Name:':
-                c.sendto(nickname.encode('utf-8'),server)
-            else:
-                print(message)
+            print(message)
         except:
             print("Client side error")
             c.close()
